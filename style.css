@@ -12,7 +12,7 @@ body {
 
 /* navigation menu */
 nav {
-    background: rgb(239, 80, 41);
+    background: rgba(65, 105, 225, 0.663);
    margin: 0 auto;
     display: flex;
     padding: 10px;
@@ -33,12 +33,12 @@ h1 {
 }
 a {
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
 }
 
 /* main container area beneath menu */
 main {
-    background: rgb(245, 238, 219);
+    background: rgba(249, 171, 70, 0.66);
     display: flex;
 }
 .sidebar {
