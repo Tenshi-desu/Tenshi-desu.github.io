@@ -38,25 +38,29 @@ $(function () {
     // Create platforms
     // You must decide the x position, y position, width, and height of the platforms
     // example usage: createPlatform(x,y,width,height)
-    createPlatform(100,650,4,100)
-    createPlatform(100,650,105,4)
-    createPlatform(200,550,4,100)
-    createPlatform(200,550,105,4)
-    createPlatform(300,450,4,100)
-    createPlatform(300,450,105,4)
-    createPlatform(400,350,4,100)
-    createPlatform(500,350,4,300)
-    createPlatform(575,650,25,4)
-    createPlatform(550,550,25,4)
-    createPlatform(525,450,25,4)
-
-    createPlatform(400,350,105,4)
-    createPlatform(800,500,105,4)
-    createPlatform(1100,500,105,4)
-    createPlatform(1300,375,105,4)
-    createPlatform(1300,150,105,4)
-    createPlatform(1300,375,105,4)
-    createPlatform(900,250,400,4)
+    createPlatform(100,650,5,100)
+    createPlatform(100,650,105,5)
+    createPlatform(200,550,5,100)
+    createPlatform(200,550,105,5)
+    createPlatform(300,450,5,100)
+    createPlatform(300,450,105,5)
+    createPlatform(400,350,5,100)
+    createPlatform(500,350,5,300)
+    createPlatform(575,650,25,5)
+    createPlatform(550,550,25,5)
+    createPlatform(525,450,25,5)
+    createPlatform(700,100,100,5)
+    createPlatform(850,175,25,5)
+    createPlatform(100,100,675,5)
+    createPlatform(0,250,105,5)
+    createPlatform(100,100,5,150)
+    createPlatform(400,350,105,5)
+    createPlatform(800,500,105,5)
+    createPlatform(1100,500,105,5)
+    createPlatform(1300,375,105,5)
+    createPlatform(1300,150,105,5)
+    createPlatform(1300,375,105,5)
+    createPlatform(900,250,400,5)
 
 
 
@@ -75,8 +79,14 @@ $(function () {
     // Your wall choices are: 'top' 'left' 'right' and 'bottom'
     // example usage: createCannon(side, position, delay, width, height)
 
-
-
+createCannon('bottom', 100, 2000, 10, 10)
+createCannon('bottom', 200, 3000, 10, 10)
+createCannon('bottom', 300, 2000, 10, 10)
+createCannon('bottom', 400, 3000, 10, 10)
+createCannon('left', 250, 2000, 10, 10)
+createCannon('right', 500, 2000, 10, 10)
+createCannon('right', 650, 2000, 10, 10)
+createCannon('right', 100, 3000, 10, 10)
     
     /////////////////////////////////////////////////
     //////////ONLY CHANGE ABOVE THIS POINT///////////
