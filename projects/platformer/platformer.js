@@ -70,8 +70,11 @@ $(function () {
     // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' and 'steve'; more can be added if you wish
     // example usage: createCollectable(type, x, y, gravity, bounce)
 
-
-
+createCollectable("database", 700, 200, 0, 0)
+createCollectable("database", 1300, 650, 0, 0)
+createCollectable("database", 350, 550, 0, 0)
+createCollectable("database", 1300, 100, 0, 0)
+createCollectable("database", 25, 150, 0, 0)
     
     // TODO 3
     // Create cannons
