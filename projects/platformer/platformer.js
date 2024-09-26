@@ -71,10 +71,10 @@ $(function () {
     // example usage: createCollectable(type, x, y, gravity, bounce)
 
 createCollectable("database", 700, 200, 0, 0)
-createCollectable("database", 1300, 650, 0, 0)
-createCollectable("database", 350, 550, 0, 0)
-createCollectable("database", 1300, 100, 0, 0)
-createCollectable("database", 25, 150, 0, 0)
+createCollectable("database", 1300, 650, 1, 1)
+createCollectable("database", 350, 550, 1, 1)
+createCollectable("database", 1300, 100, 1, 1)
+createCollectable("database", 25, 150, 1, 1)
     
     // TODO 3
     // Create cannons
