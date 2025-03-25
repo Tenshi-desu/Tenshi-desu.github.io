@@ -10,13 +10,27 @@ function runProgram(){
   // Constant Variables
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
-  
+  var key = {
+    LEFT: 37,
+    UP: 38,
+    Right:39,
+    DOWN: 40
+  };
+
+  var walker = {
+X: 0,
+Y: 0,
+SpeedX: 0,
+SpeedY: 0,
+  };
+
+
   // Game Item Objects
 
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
+  $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -34,14 +48,26 @@ function runProgram(){
   /* 
   Called in response to events.
   */
-  function handleEvent(event) {
+  function handleKeyDown(event) {
+if (event.key === KeyboardEvent.LEFT) {
+console.log("Left Pressed")
+}
 
+
+
+
+
+
+
+console.log(event.key)
   }
 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
+function repositionGameItem() {}
 
+function redrawGameItem() {}
   
   function endGame() {
     // stop the interval timer
