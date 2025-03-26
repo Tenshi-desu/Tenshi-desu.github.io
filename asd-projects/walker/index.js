@@ -1,8 +1,8 @@
 /* global $, sessionStorage */
 
 $(document).ready(runProgram); // wait for the HTML / CSS elements of the page to fully load, then execute runProgram()
-  
-function runProgram(){
+
+function runProgram() {
   ////////////////////////////////////////////////////////////////////////////////
   //////////////////////////// SETUP /////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -10,27 +10,25 @@ function runProgram(){
   // Constant Variables
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
-  var key = {
+  var KEY = {
     LEFT: 37,
     UP: 38,
-    Right:39,
-    DOWN: 40
+    RIGHT: 39,
+    DOWN: 40,
   };
 
   var walker = {
-X: 0,
-Y: 0,
-SpeedX: 0,
-SpeedY: 0,
+    X: 0,
+    Y: 0,
+    SpeedX: 0,
+    SpeedY: 0,
   };
-
 
   // Game Item Objects
 
-
   // one-time setup
-  var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
+  var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL); // execute newFrame every 0.0166 seconds (60 Frames per second)
+  $(document).on("keydown", handleKeyDown); // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -41,34 +39,41 @@ SpeedY: 0,
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
-
+    repositionGameItem()
+    redrawGameItem()
   }
-  
+
   /* 
   Called in response to events.
   */
   function handleKeyDown(event) {
-if (event.key === KeyboardEvent.LEFT) {
-console.log("Left Pressed")
-}
-
-
-
-
-
-
-
-console.log(event.key)
+    if (event.which === KEY.LEFT) {
+      walker.SpeedX = -5
+    }
+    if (event.which === KEY.UP) {
+      walker.SpeedY = -5
+    }
+    if (event.which === KEY.RIGHT) {
+      walker.SpeedX = 5
+    }
+    if (event.which === KEY.DOWN) {
+      walker.SpeedY = 5
+    }
   }
 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-function repositionGameItem() {}
+  function repositionGameItem() {
+    walker.X = walker.X + walker.SpeedX;
+    walker.Y = walker.Y + walker.SpeedY;
+  }
 
-function redrawGameItem() {}
-  
+  function redrawGameItem() {
+    $("#walker").css("left", walker.X);
+    $("#walker").css("top", walker.Y);
+  }
+
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
@@ -76,5 +81,4 @@ function redrawGameItem() {}
     // turn off event handlers
     $(document).off();
   }
-  
 }
