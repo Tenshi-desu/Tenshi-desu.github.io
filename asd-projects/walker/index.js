@@ -29,7 +29,7 @@ function runProgram() {
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL); // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on("keydown", handleKeyDown); // change 'eventType' to the type of event you want to handle
-
+  $(document).on("keyup", handleKeyUp);
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -39,8 +39,9 @@ function runProgram() {
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    repositionGameItem()
-    redrawGameItem()
+    repositionGameItem();
+    wallCollision();
+    redrawnGameItem();
   }
 
   /* 
@@ -48,16 +49,28 @@ function runProgram() {
   */
   function handleKeyDown(event) {
     if (event.which === KEY.LEFT) {
-      walker.SpeedX = -5
+      walker.SpeedX = -5;
     }
     if (event.which === KEY.UP) {
-      walker.SpeedY = -5
+      walker.SpeedY = -5;
     }
     if (event.which === KEY.RIGHT) {
-      walker.SpeedX = 5
+      walker.SpeedX = 5;
     }
     if (event.which === KEY.DOWN) {
-      walker.SpeedY = 5
+      walker.SpeedY = 5;
+    }
+  }
+
+  function handleKeyUp(event) {
+    if (
+      event.which === KEY.LEFT ||
+      event.which === KEY.UP ||
+      event.which === KEY.RIGHT ||
+      event.which === KEY.DOWN
+    ) {
+      walker.SpeedX = 0;
+      walker.SpeedY = 0;
     }
   }
 
@@ -69,10 +82,27 @@ function runProgram() {
     walker.Y = walker.Y + walker.SpeedY;
   }
 
-  function redrawGameItem() {
+  function redrawnGameItem() {
     $("#walker").css("left", walker.X);
     $("#walker").css("top", walker.Y);
   }
+
+  function wallCollision() {
+    var bWidth = $("#board").width() - 50;
+    var bHeight = $("#board").height() - 50;
+    if (walker.X < 0) {
+    walker.X = 0;
+    }
+    if (walker.X > bWidth) {
+    walker.X = bWidth;
+    }
+    if (walker.Y < 0) {
+    walker.Y = 0;
+    }
+    if (walker.Y > bHeight) {
+    walker.Y = bHeight;
+    }
+    }
 
   function endGame() {
     // stop the interval timer
